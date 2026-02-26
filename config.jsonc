@@ -13,9 +13,8 @@
     ],
     "modules-right": [
         "pulseaudio",
-        "cpu",
-        "memory",
-        "temperature",
+        "battery",
+        "network",
         "tray",
         "custom/power"
     ],
@@ -31,6 +30,31 @@
             "default": ""
         }
     },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "Connected ",
+        "format-ethernet": "Ethernet ",
+        "format-disconnected": "󰈂",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "networkmanager_dmenu",
+        "max-length": 50
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+        },
+        "max-length": 25
+    },
     "tray": {
         "spacing": 10
     },
@@ -38,19 +62,7 @@
         "timezone": "Europe/Madrid",
         "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%I:%M:%S%t%A, %d}",
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": [""]
+        "format": "{:%I:%M:%S%t%A, %d}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
