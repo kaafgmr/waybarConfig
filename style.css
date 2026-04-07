@@ -15,7 +15,6 @@
 #workspaces,
 #pulseaudio,
 #battery,
-#bluetooth,
 #tray {
     background-color: @surface0;
     padding: 0px 1rem;
